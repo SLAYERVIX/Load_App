@@ -26,10 +26,12 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
 
+        // Call create notification channel
         createNotificationChannel(this)
 
         registerReceiver(receiver, IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
 
+        // On every radio selection it will set the url to specific url
         binding.content.radioGroup.setOnCheckedChangeListener { _, i ->
             selectedDownloadUri = when (i) {
                 R.id.rb_retrofit -> URL.RETROFIT_URI
@@ -39,8 +41,12 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+
+        // Custom button click listener
+        // if uri is null it will show toast message
+        // else it will start loading the image
         binding.content.customButton.setOnClickListener {
-            if (selectedDownloadUri != null) {
+            if (selectedDownloadUri != URL.DEFAULT) {
                 binding.content.customButton.buttonState = ButtonState.Loading
                 download()
             } else {
@@ -61,7 +67,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
+    // Launch download manager
     private fun download() {
+        // Create request and conditions
         val request =
             DownloadManager.Request(Uri.parse(selectedDownloadUri?.uri))
                 .setTitle(getString(R.string.app_name))
@@ -76,7 +85,7 @@ class MainActivity : AppCompatActivity() {
 
         val downloadManager = getSystemService(DOWNLOAD_SERVICE) as DownloadManager
         downloadID =
-            downloadManager.enqueue(request)// enqueue puts the download request in the queue.
+            downloadManager.enqueue(request) // enqueue the download request in the queue.
 
         val cursor = downloadManager.query(DownloadManager.Query().setFilterById(downloadID))
         if (cursor.moveToFirst()) {
@@ -92,3 +101,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+

@@ -16,5 +16,10 @@ enum class URL (val uri: String, val title: String, val text: String) {
         "Retrofit: Type-safe HTTP client by Square, Inc",
         "Retrofit repository is downloaded"
     ),
+    DEFAULT(
+        "",
+        "",
+        ""
+    ),
 }
 

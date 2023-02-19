@@ -96,18 +96,21 @@ class LoadingButton @JvmOverloads constructor(
         drawCircleProgress(canvas)
     }
 
+
+    // Draw button background color
     private fun drawBackgroundColor(canvas: Canvas?) {
         paint.color = buttonColor
         canvas?.drawRect(0f, 0f, widthSize.toFloat(), heightSize.toFloat(), paint)
     }
 
+    // Draw Progress background
     private fun drawProgressBackground(canvas: Canvas?) {
         paint.color = loadingColor
         canvas?.drawRect(0f, 0f, progressWidth, heightSize.toFloat(), paint)
     }
 
+    // Draw Circular progress
     private fun drawCircleProgress(canvas: Canvas?) {
-
         canvas?.save()
         canvas?.translate(widthSize / 2 + textWidth / 2 + circleXOffset, heightSize / 2 - textSize / 2)
         paint.color = circleColor
@@ -115,12 +118,14 @@ class LoadingButton @JvmOverloads constructor(
         canvas?.restore()
     }
 
+    // Draw title
     private fun drawTitle(canvas: Canvas?) {
         paint.color = Color.WHITE
         textWidth = paint.measureText(buttonTitle)
         canvas?.drawText(buttonTitle, widthSize / 2 - textWidth / 2, heightSize / 2 - (paint.descent() + paint.ascent()) / 2, paint)
     }
 
+    // Measure view to determine its width and height
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         val minw: Int = paddingLeft + paddingRight + suggestedMinimumWidth
         val w: Int = resolveSizeAndState(minw, widthMeasureSpec, 1)
