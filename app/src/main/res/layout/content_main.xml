@@ -9,6 +9,7 @@
     tools:context=".ui.screens.main.MainActivity"
     tools:showIn="@layout/activity_main">
 
+    <!-- Custom loading button -->
     <com.udacity.ui.custom_views.LoadingButton
         android:id="@+id/custom_button"
         android:layout_width="0dp"
@@ -21,6 +22,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <!-- Radio group -->
     <RadioGroup
         android:id="@+id/radio_group"
         android:layout_width="0dp"
@@ -29,18 +31,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <!-- Retrofit radio btn -->
         <RadioButton
             android:id="@+id/rb_retrofit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Retrofit Library" />
 
+        <!-- Udacity radio btn -->
         <RadioButton
             android:id="@+id/rb_udacity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Udacity project" />
 
+        <!-- Glide radio btn -->
         <RadioButton
             android:id="@+id/rb_glide"
             android:layout_width="match_parent"

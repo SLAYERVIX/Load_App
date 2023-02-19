@@ -8,6 +8,7 @@
     tools:context=".ui.screens.details.DetailActivity"
     tools:showIn="@layout/activity_detail">
 
+    <!-- file name title text -->
     <TextView
         android:id="@+id/fileNameTitleTextView"
         android:layout_width="0dp"
@@ -18,6 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/fileNameTextView" />
 
+    <!-- filename text text  -->
     <TextView
         android:id="@+id/fileNameTextView"
         android:layout_width="0dp"
@@ -31,6 +33,7 @@
         app:layout_constraintStart_toEndOf="@+id/fileNameTitleTextView"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- status title -->
     <TextView
         android:id="@+id/statusTileTextView"
         android:layout_width="0dp"
@@ -41,6 +44,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/statusTextView" />
 
+    <!-- status text text -->
     <TextView
         android:id="@+id/statusTextView"
         android:layout_width="0dp"
@@ -55,6 +59,7 @@
         app:layout_constraintStart_toEndOf="@+id/fileNameTitleTextView"
         app:layout_constraintTop_toBottomOf="@+id/fileNameTextView" />
 
+    <!-- Done button -->
     <Button
         android:id="@+id/ok_button"
         android:layout_width="0dp"
